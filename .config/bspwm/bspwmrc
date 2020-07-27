@@ -1,0 +1,42 @@
+#! /bin/sh
+
+sxhkd &
+
+bspc monitor -d CODE WEB MUSIC TTY TTY2
+
+# Gap and border configs
+
+bspc config border_width         0
+bspc config window_gap          5
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc rule -a kitty desktop="^1"
+bspc rule -a Screenkey manage=off
+bspc rule -a firefox desktop='^2'
+bspc rule -a spotify desktop='^3'
+
+# Wallpaper - scaling options - tile, center, max, fill
+feh --bg-fill $HOME/Pictures/Wallpapers/swordy.jpg &
+
+# Pywal wallpaper config
+#wal -i $HOME/Pictures/Wallpapers/katanag.png &
+
+# Pywal colors
+#. "${HOME}/.cache/wal/colors.sh"
+
+# Focus where the mouse is - comment to turn off
+bspc config focus_follows_pointer true
+
+# Polybar launch
+$HOME/.config/polybar/launch.sh
+
+# Picom start with BSPWM - Uncomment to enable
+picom --config $HOME/.config/picom/picom.conf &
+
+exec dunst
+
+
+
