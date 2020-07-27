@@ -1,1 +1,1 @@
-# dotfiles
+# nothrill's dotfiles :)
