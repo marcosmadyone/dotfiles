@@ -1,0 +1,6 @@
+# theme path
+rofi.theme: ~/.config/rofi/themes/esmeralda.rasi
+
+show-icons: true;
+font: Monokai Nerd Font Mono 12;
+icon-theme: Papirus;
