@@ -6,10 +6,6 @@
 super + Return
 	kitty
 
-# cmatrix screensaver
-#super + shift + m
-#    cmatrix_run -l -C magenta
-
 # program launcher
 super + d
 	rofi -show run
@@ -17,9 +13,18 @@ super + d
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
+
 # browser
 super + q
-    firefox
+	chromium
+
+super + {shift} + q
+	firefox
+
+# Visual Studio Code
+super + v
+	code
+
 
 #
 # bspwm hotkeys
@@ -30,7 +35,7 @@ super + alt + {q,r}
 	bspc {quit,wm -r}
 
 # close and kill
-super + {_,shift + }w
+super + w
 	bspc node -{c,k}
 
 # alternate between the tiled and monocle layout
@@ -41,9 +46,9 @@ super + m
 super + y
 	bspc node newest.marked.local -n newest.!automatic.local
 
-# swap the current node and the biggest node
+# swap the current node and the biggest window
 super + g
-	bspc node -s biggest
+	bspc node -s biggest.window
 
 #
 # state/flags
@@ -69,9 +74,9 @@ super + {_,shift + }{h,j,k,l}
 super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
-# focus the next/previous node in the current desktop
+# focus the next/previous window in the current desktop
 super + {_,shift + }c
-	bspc node -f {next,prev}.local
+	bspc node -f {next,prev}.local.!hidden.window
 
 # focus the next/previous desktop in the current monitor
 super + bracket{left,right}
@@ -126,4 +131,3 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
-
